@@ -1,1 +1,2 @@
-# dotfiles
+# My OSX/eOS dotfiles
+
