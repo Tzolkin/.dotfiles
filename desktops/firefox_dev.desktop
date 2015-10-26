@@ -4,6 +4,9 @@ Name=Firefox Developer
 Comment=Browse the World Wide Web
 GenericName=Firefox Developer Edition
 Exec=/home/user/Programs/firefox/firefox %u
+# elementaryOS Issue
+# https://www.reddit.com/r/elementaryos/comments/3m82zf/firefox_developer_edition_looks_jelly_on/
+# Exec=sh -c "GTK_CSD=0 GTK_THEME=Adwaita /home/user/Programs/firefox/firefox %u"
 Terminal=false
 Icon=/home/user/Programs/firefox/browser/icons/mozicon128.png
 Type=Application
