@@ -1,0 +1,32 @@
+# Rails commands
+alias rspf='rails server -p 8000'
+alias rsst='rails server -p 5000'
+alias omst='overmind start -f ~/Projects/savvytours/Procfile.dev -s ~/Projects/savvytours/dev.sock'
+
+# Heroku Console
+alias hrcpf='heroku run rails console --app pf-production'
+alias hrcst='heroku run rails console --app savvytours'
+
+# SSL Rails Server
+alias sslpf=''
+alias sslst="bundle exec rails server -p 5000 -b 'ssl://savvytours.test:5000?key=config/ssl/savvytours.test-key.pem&cert=config/ssl/savvytours.test.pem'"
+
+# Backup DB
+alias bdbpf='pg_restore --verbose --clean --no-acl --no-owner -h localhost -U pako -d previewfirst_development /Users/pako/Projects/dumps/previewfirst/previewfirst.dump'
+alias bdbst='pg_restore --verbose --clean --no-acl --no-owner -h localhost -U pako -d savvytours_development /Users/pako/Projects/dumps/savvytours/savvytours.dump'
+
+# Deploy
+alias  deploypf='git push heroku develop:master && heroku restart --app pf-production'
+alias  deployst='git push heroku develop:master && heroku restart --app savvytours'
+
+# Deploy to Staging
+alias stagingst='f(){ git push -f staging "$1":master && heroku restart --app staging-savvytours; unset -f f; }; f'
+
+# Redis
+alias runredis='redis-server /usr/local/etc/redis.conf'
+# Sidekiq PF
+alias sidekiqpf='bundle exec sidekiq -q medium -q default -q high'
+
+# TDPS
+alias foremans='foreman start -f Procfile.dev'
+
