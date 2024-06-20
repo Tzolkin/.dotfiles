@@ -1,0 +1,29 @@
+# Rails commands
+alias rspf='rails server -p 8000'
+alias rsst='rails server -p 5000'
+
+# Heroku Console
+alias hrcpf='heroku run rails console --app application1'
+alias hrcst='heroku run rails console --app application2'
+
+# SSL Rails Server
+alias sslpf=''
+alias sslst=""
+
+# Backup DB
+alias bdbpf='pg_restore --verbose --clean --no-acl --no-owner -h localhost -U user -d application1_development ~/Projects/dumps/application1.dump'
+alias bdbst='pg_restore --verbose --clean --no-acl --no-owner -h localhost -U user -d application2_development ~/Projects/dumps/application2.dump'
+
+# Deploy
+alias  deploypf='git push heroku develop:master && heroku restart --app application1'
+alias  deployst='git push heroku develop:master && heroku restart --app application2'
+
+# Deploy to Staging
+alias stagingst='f(){ git push -f staging "$1":master && heroku restart --app staging-application2; unset -f f; }; f'
+
+# Redis
+alias runredis='redis-server /usr/local/etc/redis.conf'
+# Sidekiq PF
+alias sidekiqpf='bundle exec sidekiq -q medium -q default -q high'
+
+
