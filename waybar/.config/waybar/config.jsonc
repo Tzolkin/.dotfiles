@@ -21,7 +21,7 @@
     "format": "{icon}",
     "on-click": "activate",
     "on-click-right": "fullscreen",
-    "icon-theme": "WhiteSur",
+    //"icon-theme": "WhiteSur",
     "icon-size": 40,
     "tooltip-format": "{title}",
   },
@@ -34,11 +34,10 @@
     "format-icons": {
       "default": "",
       "1": "",
-      //"2": "",
       "2": "\ue745",
-      "3": "",
-      "4": "",
-      "5": "",
+      "3": "",
+      "4": "",
+      "5": "",
       "urgent": "",
       "focused": "",
       "default": "",
@@ -47,8 +46,6 @@
     "persistent_workspaces": {
       "1": [],
       "2": [],
-      "3": [],
-      "4": [],
     },
   },
 
@@ -71,7 +68,7 @@
     "format-alt": "{:%A, %B %d, %Y (%R)} ",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
     "calendar": {
-      "mode": "year",
+      "mode": "month",
       "mode-mon-col": 3,
       "weeks-pos": "right",
       "on-scroll": 1,
