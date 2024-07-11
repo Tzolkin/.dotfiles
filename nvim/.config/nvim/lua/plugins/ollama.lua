@@ -2,7 +2,7 @@
 return {
   "David-Kunz/gen.nvim",
   opts = {
-    model = "granite-code:8b", -- The default model to use.
+    model = "granite-code:3b", -- The default model to use.
     host = "localhost", -- The host running the Ollama service.
     port = "11434", -- The port on which the Ollama service is listening.
     quit_map = "q", -- set keymap for close the response window
