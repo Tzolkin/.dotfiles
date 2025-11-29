@@ -1,5 +1,6 @@
 return {
-  "williamboman/mason.nvim",
+  "mason-org/mason.nvim",
+  version = ">=2.0",
   opts = { ensure_installed = { "gitui" } },
   keys = {
     {
