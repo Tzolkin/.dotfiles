@@ -10,6 +10,9 @@ return {
         mason = false,
         cmd = { vim.fn.expand("~/.asdf/shims/rubocop"), "--lsp" },
       },
+      ts_ls = {
+        cmd = { "typescript-language-server", "--stdio" },
+      },
     },
   },
 }

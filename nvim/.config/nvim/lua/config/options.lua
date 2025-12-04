@@ -2,15 +2,18 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+vim.opt.clipboard:append("unnamedplus")
 vim.g.clipboard = {
-  name = "WslClipboard",
+  name = "wsl-clip",
   copy = {
     ["+"] = "clip.exe",
     ["*"] = "clip.exe",
   },
   paste = {
-    ["+"] = 'pwsh.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-    ["*"] = 'pwsh.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    -- ["+"] = 'pwsh.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    -- ["*"] = 'pwsh.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    ["+"] = "powershell.exe Get-Clipboard",
+    ["*"] = "powershell.exe Get-Clipboard",
   },
   cache_enabled = 0,
 }
