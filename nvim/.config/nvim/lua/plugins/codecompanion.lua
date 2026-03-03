@@ -1,53 +1,36 @@
 return {
   "olimorris/codecompanion.nvim",
-  version = "*", -- recommended, use latest release instead of latest commit
+  version = "^19.1.0",
+  event = "VeryLazy",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "ravitemer/mcphub.nvim",
     "nvim-treesitter/nvim-treesitter",
+    "stevearc/dressing.nvim",
   },
-  config = function()
-    require("codecompanion").setup({
-      extensions = {
-        mcphub = {
-          callback = "mcphub.extensions.codecompanion",
-          opts = {
-            make_vars = true,
-            make_slash_commands = true,
-            show_result_in_chat = true,
-          },
-        },
+  -- The 'opts' table contains all the user-specific settings for the plugin.
+  opts = {
+    -- This 'strategies' table sets the DEFAULT AI PROVIDER and MODEL
+    -- for different categories of actions within the plugin.
+    strategies = {
+      -- Configures the default model for running custom prompts.
+      cmd = {
+        adapter = "ollama",
+        model = "qwen2.5-coder:7b",
       },
-      strategies = {
-        chat = {
-          adapter = "ollama",
-          inline = "ollama",
-          cmd = "ollama",
-        },
+
+      -- Configures the model for the interactive chat window (:CompanionChat).
+      chat = {
+        adapter = "ollama",
+        model = "qwen2.5-coder:7b",
       },
-      adapters = {
-        ollama = function()
-          return require("codecompanion.adapters").extend("ollama", {
-            schema = {
-              model = {
-                default = "qwen2.5-coder:7b",
-              },
-              num_ctx = {
-                default = 16384,
-              },
-              think = {
-                default = false,
-              },
-              keep_alive = {
-                default = "5m",
-              },
-            },
-            env = {
-              url = "http://localhost:11434",
-            },
-          })
-        end,
+
+      -- Configures the model for any action that modifies code directly in your buffer
+      -- using the 'inline' strategy.
+      inline = {
+        adapter = "ollama",
+        model = "qwen2.5-coder:7b",
       },
-    })
-  end,
+    },
+  },
 }
