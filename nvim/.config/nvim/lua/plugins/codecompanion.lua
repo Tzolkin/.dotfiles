@@ -1,6 +1,6 @@
 return {
   "olimorris/codecompanion.nvim",
-  version = "v17.33.0",
+  version = "*", -- recommended, use latest release instead of latest commit
   dependencies = {
     "nvim-lua/plenary.nvim",
     "ravitemer/mcphub.nvim",
@@ -21,6 +21,8 @@ return {
       strategies = {
         chat = {
           adapter = "ollama",
+          inline = "ollama",
+          cmd = "ollama",
         },
       },
       adapters = {
@@ -28,7 +30,7 @@ return {
           return require("codecompanion.adapters").extend("ollama", {
             schema = {
               model = {
-                default = "qwen3:8b",
+                default = "qwen2.5-coder:7b",
               },
               num_ctx = {
                 default = 16384,
